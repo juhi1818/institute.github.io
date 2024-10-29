@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Dashboard</h1>
+        <button id="viewAssignedTasksBtn">View Assigned Tasks</button>
+        <button id="submitMarksBtn">Submit Marks</button>
+        <button id="viewAssessmentsBtn">View Assessments</button>
+        <button id="updateCurriculumBtn">Update Curriculum</button>
+        
+        <div id="content"></div>
+    </div>
+
+    <script>
+        // Function to view assigned tasks
+        function viewAssignedTasks() {
+            console.log("View Assigned Tasks button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>Assigned Tasks</h2>
+                <p>List of tasks assigned to you.</p>
+                <ul>
+                    <li>Task 1: Review student assignments</li>
+                    <li>Task 2: Prepare exam questions</li>
+                </ul>
+            `;
+        }
+
+        // Function to submit marks
+        function submitMarks() {
+            console.log("Submit Marks button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>Submit Marks</h2>
+                <form id="marksForm">
+                    <input type="text" id="studentId" placeholder="Student ID" required>
+                    <input type="number" id="marks" placeholder="Marks" required>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="marksConfirmation"></div>
+            `;
+
+            document.getElementById('marksForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const studentId = document.getElementById('studentId').value;
+                const marks = document.getElementById('marks').value;
+                
+                // Here you would typically save the marks to a database or local storage
+                document.getElementById('marksConfirmation').textContent = `Marks for Student ID ${studentId} submitted: ${marks}`;
+                this.reset();
+            });
+        }
+
+        // Function to view assessments
+        function viewAssessments() {
+            console.log("View Assessments button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>View Assessments</h2>
+                <p>List of assessments and their statuses.</p>
+                <ul>
+                    <li>Assessment 1: Completed</li>
+                    <li>Assessment 2: In Progress</li>
+                </ul>
+            `;
+        }
+
+        // Function to update curriculum
+        function updateCurriculum() {
+            console.log("Update Curriculum button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>Update Curriculum</h2>
+                <form id="curriculumForm">
+                    <textarea id="curriculumDetails" placeholder="Update curriculum details" required></textarea>
+                    <button type="submit">Update</button>
+                </form>
+                <div id="curriculumConfirmation"></div>
+            `;
+
+            document.getElementById('curriculumForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const details = document.getElementById('curriculumDetails').value;
+                
+                // Here you would typically save the curriculum details to a database or local storage
+                document.getElementById('curriculumConfirmation').textContent = `Curriculum updated with details: ${details}`;
+                this.reset();
+            });
+        }
+
+        // Add event listeners to buttons
+        document.getElementById('viewAssignedTasksBtn').addEventListener('click', viewAssignedTasks);
+        document.getElementById('submitMarksBtn').addEventListener('click', submitMarks);
+        document.getElementById('viewAssessmentsBtn').addEventListener('click', viewAssessments);
+        document.getElementById('updateCurriculumBtn').addEventListener('click', updateCurriculum);
+    </script>
+</body>
+</html>

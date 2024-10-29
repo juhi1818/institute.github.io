@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Dashboard</h1>
+        <button id="viewAssessmentsBtn">View Assessments</button>
+        <button id="viewReportsBtn">View Reports</button>
+        <button id="readingMaterialsBtn">Reading Materials</button>
+        
+        <div id="content"></div>
+    </div>
+
+    <script>
+        // Function to view assessments
+        function viewAssessments() {
+            console.log("View Assessments button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>Your Assessments</h2>
+                <ul>
+                    <li>Assessment 1: Not Completed</li>
+                    <li>Assessment 2: Completed</li>
+                </ul>
+            `;
+        }
+
+        // Function to view reports
+        function viewReports() {
+            console.log("View Reports button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>Your Reports</h2>
+                <table border="1">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                    </tr>
+                    <tr>
+                        <td>Math</td>
+                        <td>85</td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td>90</td>
+                    </tr>
+                </table>
+            `;
+        }
+
+        // Function to view reading materials
+        function viewReadingMaterials() {
+            console.log("View Reading Materials button clicked");
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h2>Reading Materials</h2>
+                <ul>
+                    <li><a href="#">cyber security</a></li>
+                    <li><a href="#">Ethical hacking</a></li>
+                </ul>
+            `;
+        }
+
+        // Add event listeners to buttons
+        document.getElementById('viewAssessmentsBtn').addEventListener('click', viewAssessments);
+        document.getElementById('viewReportsBtn').addEventListener('click', viewReports);
+        document.getElementById('readingMaterialsBtn').addEventListener('click', viewReadingMaterials);
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+            font-size: 3rem; /* Increased font size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+        }
+
+        .welcome-message {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin: 10px 0;
+            opacity: 1;
+            transition: opacity 2s ease-out; /* Fade out effect */
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 200px; /* Increased height for content */
+            position: relative;
+            overflow: hidden; /* Prevents overflow of content */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.2s;
+            position: relative; /* Positioning for dynamic effect */
+            z-index: 1; /* Ensure button is above other elements */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        #content {
+            grid-column: span 3;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="welcome-message" id="welcomeMessage">Welcome, Admin!</div>
+    
+    <div class="container">
+        <div class="card">
+            <i class="card-icon fas fa-users"></i>
+            <button id="manageStudentsBtn" onclick="window.location.href='manage-students.html'">Manage Students</button>
+        </div>
+        <div class="card">
+            <i class="card-icon fas fa-briefcase"></i>
+            <button id="manageEmployeesBtn">Manage Employees</button>
+        </div>
+        <div class="card">
+            <i class="card-icon fas fa-tasks"></i>
+            <button id="assignTasksBtn">Assign Tasks</button>
+        </div>
+        <div class="card">
+            <i class="card-icon fas fa-chart-line"></i>
+            <button id="viewReportsBtn">View Reports</button>
+        </div>
+        <div class="card">
+            <i class="card-icon fas fa-file-export"></i>
+            <button id="exportDataBtn">Export Data to Excel</button>
+        </div>
+        <div class="card">
+            <i class="card-icon fas fa-cogs"></i>
+            <button id="anotherFunctionBtn">Another Function</button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Fade out welcome message after 3 seconds
+        setTimeout(() => {
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.style.opacity = '0'; // Start fade out
+        }, 3000);
+
+        document.getElementById('manageEmployeesBtn').addEventListener('click', () => alert("Manage Employees button clicked"));
+        document.getElementById('assignTasksBtn').addEventListener('click', () => alert("Assign Tasks button clicked"));
+        document.getElementById('viewReportsBtn').addEventListener('click', () => alert("View Reports button clicked"));
+        document.getElementById('exportDataBtn').addEventListener('click', () => alert("Export Data button clicked"));
+        document.getElementById('anotherFunctionBtn').addEventListener('click', () => alert("Another function button clicked"));
+    </script>
+</body>
+</html>
